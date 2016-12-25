@@ -6,17 +6,18 @@
 
 (function (factory) {
     
-    if(typeof define === 'function' && define.cmd) {
-        define(function (require) {
-            var $ = require('jquery');
-
-            factory($);
-        });
+    if (typeof define === 'function' && define.amd) {
+        // AMD
+        define(['jquery'], factory);
+    } else if (typeof exports === 'object') {
+        // CommonJS
+        factory(require('jquery'));
     } else {
-        factory(window.jQuery);
+        // Browser globals
+        factory(jQuery);
     }
 
-})(function ($) {
+}(function ($) {
     $.fn.region = function (options) {
 
         if(!options) return;
@@ -133,4 +134,4 @@
 
         }, 200);  
     }
-});
+}));
