@@ -18,6 +18,7 @@
     }
 
 }(function ($) {
+
     $.fn.region = function (options) {
 
         if(!options) return;
